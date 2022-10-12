@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Stack, TextField, Typography } from '@mui/material';
 
-import loginImage from 'assets/img/login.svg';
+import signUpImage from 'assets/img/signup.svg';
 
-export default function LoginForm() {
+export default function SignUpForm() {
    const navigate = useNavigate();
 
    return (
@@ -15,22 +15,27 @@ export default function LoginForm() {
          alignItems="center"
       >
          <Stack spacing={4} flex={1} pr={{ xs: 0, md: 8 }}>
-            <Typography variant="h3">Login</Typography>
+            <Typography variant="h3">Cadastro</Typography>
             <TextField label="Email" variant="outlined" />
             <TextField type="password" label="Senha" variant="outlined" />
-            <Button variant="contained" onClick={() => navigate('/quiz')}>
+            <TextField
+               type="password"
+               label="Confirme a senha"
+               variant="outlined"
+            />
+            <Button variant="contained" onClick={() => navigate('/login')}>
                entrar
             </Button>
             <Typography variant="body2" textAlign="center">
-               Ainda não tem uma conta?{' '}
-               <Link to="/signup" style={{ textDecoration: 'none' }}>
-                  Cadastre-se
+               Já uma conta?{' '}
+               <Link to="/login" style={{ textDecoration: 'none' }}>
+                  Faça login
                </Link>
             </Typography>
          </Stack>
          <img
-            src={loginImage}
-            alt="login"
+            src={signUpImage}
+            alt="signUp"
             style={{
                minWidth: 250,
                maxWidth: '35%',

@@ -29,7 +29,9 @@ export default function Home() {
          </Box>
          <Stack direction="row" justifyContent="center" spacing={5}>
             <Typography variant="h6">Ainda não tem uma conta?</Typography>
-            <Button variant="outlined">crie sua conta aqui</Button>
+            <Button variant="outlined" onClick={() => navigate('/signup')}>
+               crie sua conta aqui
+            </Button>
          </Stack>
       </Stack>
    );
