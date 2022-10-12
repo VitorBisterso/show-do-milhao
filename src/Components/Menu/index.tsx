@@ -18,7 +18,7 @@ export default function Menu() {
             <Link to="/home">
                <img src={logo} width={150} alt="logo" />
             </Link>
-            <Link to="/rank" style={{ textDecoration: 'none' }}>
+            <Link to="/ranking" style={{ textDecoration: 'none' }}>
                <Typography variant="h6" color="white">
                   placar de líderes
                </Typography>

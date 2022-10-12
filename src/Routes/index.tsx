@@ -5,6 +5,7 @@ import Menu from 'Components/Menu';
 import Home from 'Views/Home';
 import LoginForm from 'Views/Login';
 import SignUpForm from 'Views/SignUp';
+import Ranking from 'Views/Ranking';
 
 export default function AppRoutes() {
    return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
                <Route path="home" element={<Home />} />
                <Route path="login" element={<LoginForm />} />
                <Route path="signup" element={<SignUpForm />} />
+               <Route path="ranking" element={<Ranking />} />
             </Route>
          </Routes>
       </BrowserRouter>
