@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import Home from '@/Views/Home';
+import Home from 'Views/Home';
 
 export default function AppRoutes() {
    return (
