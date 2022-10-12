@@ -17,7 +17,7 @@ export default function Home() {
          <img
             src={logo}
             alt="logo"
-            style={{ minWidth: '30%', maxWidth: '250px' }}
+            style={{ minWidth: '250px', maxWidth: '30%' }}
          />
          <Typography variant="h4">
             Acha que consegue se tornar o próximo milionário?
