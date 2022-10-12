@@ -7,6 +7,7 @@ import LoginForm from 'Views/Login';
 import SignUpForm from 'Views/SignUp';
 import Ranking from 'Views/Ranking';
 import PageNotFound from 'Views/PageNotFound';
+import Quiz from 'Views/Quiz';
 
 export default function AppRoutes() {
    return (
@@ -18,7 +19,7 @@ export default function AppRoutes() {
                <Route path="login" element={<LoginForm />} />
                <Route path="signup" element={<SignUpForm />} />
                <Route path="ranking" element={<Ranking />} />
-               <Route path="quiz" element={<Ranking />} />
+               <Route path="quiz" element={<Quiz />} />
 
                <Route path="*" element={<PageNotFound />} />
             </Route>
