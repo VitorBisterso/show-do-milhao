@@ -8,7 +8,7 @@ type RegisterParams = {
 
 export const userApi = api.injectEndpoints({
    endpoints: builder => ({
-      register: builder.mutation<string, RegisterParams>({
+      register: builder.mutation<null, RegisterParams>({
          query: data => ({
             url: '/users/register',
             method: 'POST',

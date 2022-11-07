@@ -9,6 +9,7 @@ const baseQuery = AxiosBaseQuery({
 
 // eslint-disable-next-line import/prefer-default-export
 export const api = createApi({
+   reducerPath: 'show-do-milhao',
    baseQuery,
    tagTypes: [],
    endpoints: () => ({}),
