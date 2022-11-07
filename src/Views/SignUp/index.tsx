@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Stack, TextField, Typography } from '@mui/material';
 
-import signUpImage from 'assets/img/signup.svg';
+import signUpImage from 'Assets/img/signup.svg';
 
 export default function SignUpForm() {
    const navigate = useNavigate();

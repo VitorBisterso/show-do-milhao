@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Stack, Typography } from '@mui/material';
 
-import logo from 'assets/img/logo.png';
+import logo from 'Assets/img/logo.png';
 
 export default function Home() {
    const navigate = useNavigate();

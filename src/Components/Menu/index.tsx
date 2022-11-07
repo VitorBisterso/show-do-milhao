@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { Stack, Typography } from '@mui/material';
 
-import logo from 'assets/img/logo.png';
+import logo from 'Assets/img/logo.png';
 import { LogoutOutlined } from '@mui/icons-material';
 
 export default function Menu() {

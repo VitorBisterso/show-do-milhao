@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Stack, TextField, Typography } from '@mui/material';
 
-import loginImage from 'assets/img/login.svg';
+import loginImage from 'Assets/img/login.svg';
 
 export default function LoginForm() {
    const navigate = useNavigate();
