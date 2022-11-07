@@ -9,10 +9,10 @@ import {
    Typography,
 } from '@mui/material';
 
-import signUpImage from 'Assets/img/signup.svg';
 import { useRegisterMutation } from 'Services';
-
 import ErrorAlert from 'Components/ErrorAlert';
+import signUpImage from 'Assets/img/signup.svg';
+
 import getValidationSchema from './validationSchema';
 
 export default function SignUpForm() {

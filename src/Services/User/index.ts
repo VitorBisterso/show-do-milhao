@@ -6,6 +6,11 @@ type RegisterParams = {
    password: string;
 };
 
+type LoginParams = {
+   email: string;
+   password: string;
+};
+
 export const userApi = api.injectEndpoints({
    endpoints: builder => ({
       register: builder.mutation<null, RegisterParams>({
@@ -15,7 +20,14 @@ export const userApi = api.injectEndpoints({
             data,
          }),
       }),
+      login: builder.mutation<string, LoginParams>({
+         query: data => ({
+            url: '/users/login',
+            method: 'POST',
+            data,
+         }),
+      }),
    }),
 });
 
-export const { useRegisterMutation } = userApi;
+export const { useRegisterMutation, useLoginMutation } = userApi;
