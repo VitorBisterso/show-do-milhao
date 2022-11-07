@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 
+import Question from 'Components/Question';
 import { StepType } from 'Components/Wizard';
 
 type UserRanking = {
@@ -22,11 +23,15 @@ export function mockRanking(rows: number) {
    return Array.from({ length: rows }, () => mockRankingRow());
 }
 
+function mockAnswers(amount: number) {
+   return Array.from({ length: amount }, () => faker.random.words(2));
+}
+
 export function mockQuestion(): StepType {
    return {
       title: faker.random.words(3),
       // eslint-disable-next-line react/react-in-jsx-scope
-      element: <p>Olá</p>,
+      element: <Question answers={mockAnswers(5)} />,
       // eslint-disable-next-line no-console
       onClickNext: () => console.log('respondeu'),
    };
