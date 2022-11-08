@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { setupStore } from 'Store';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './styles.css';
 
 const root = ReactDOM.createRoot(
@@ -14,6 +16,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
    <React.StrictMode>
+      <ToastContainer />
       <Provider store={setupStore()}>
          <App />
       </Provider>

@@ -6,6 +6,7 @@ import {
    Middleware,
 } from '@reduxjs/toolkit';
 import type { PreloadedState } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 import { api } from 'Services';
 
@@ -15,8 +16,7 @@ const rootReducer = combineReducers({
 
 export const middlewareErrorToast: Middleware = () => next => action => {
    if (isRejectedWithValue(action)) {
-      // eslint-disable-next-line no-console
-      console.log(action.payload);
+      toast.error(action.payload.data.error);
    }
 
    return next(action);
