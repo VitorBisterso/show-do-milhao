@@ -1,11 +1,40 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { Stack, Typography } from '@mui/material';
-
-import logo from 'Assets/img/logo.png';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Button, Stack, Typography } from '@mui/material';
 import { LogoutOutlined } from '@mui/icons-material';
 
+import logo from 'Assets/img/logo.png';
+import { isUserLoggedIn, logout } from 'Utils';
+
 export default function Menu() {
+   const navigate = useNavigate();
+   const isLoggedIn = isUserLoggedIn();
+
+   const renderLoggedInfo = () => (
+      <Stack direction="row" alignItems="center" spacing={4}>
+         {isLoggedIn ? (
+            <Button
+               style={{ alignItems: 'center' }}
+               onClick={() => {
+                  logout();
+                  navigate('/login');
+               }}
+            >
+               <Typography variant="h6" color="white">
+                  SAIR
+               </Typography>
+               <LogoutOutlined style={{ color: 'white' }} />
+            </Button>
+         ) : (
+            <Link to="/login" style={{ textDecoration: 'none' }}>
+               <Typography variant="h6" color="white">
+                  ENTRAR
+               </Typography>
+            </Link>
+         )}
+      </Stack>
+   );
+
    return (
       <>
          <Stack
@@ -38,27 +67,7 @@ export default function Menu() {
                   </Link>
                </Stack>
 
-               <Stack direction="row" alignItems="center" spacing={4}>
-                  <Link to="/login" style={{ textDecoration: 'none' }}>
-                     <Typography variant="h6" color="white">
-                        ENTRAR
-                     </Typography>
-                  </Link>
-                  <Link
-                     to="/logout"
-                     style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                     }}
-                  >
-                     <LogoutOutlined style={{ color: 'white' }} />
-                     <Typography variant="h6" color="white">
-                        SAIR
-                     </Typography>
-                  </Link>
-               </Stack>
+               {renderLoggedInfo()}
             </Stack>
          </Stack>
          <Stack mx={8} my={4}>

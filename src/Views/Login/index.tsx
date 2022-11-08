@@ -8,11 +8,12 @@ import {
    Typography,
 } from '@mui/material';
 import { useFormik } from 'formik';
+import { toast } from 'react-toastify';
 
 import loginImage from 'Assets/img/login.svg';
 import { useLoginMutation } from 'Services';
+import { TOKEN_KEY } from 'Const';
 
-import { toast } from 'react-toastify';
 import getValidationSchema from './validationSchema';
 
 export default function LoginForm() {
@@ -31,7 +32,8 @@ export default function LoginForm() {
             password: formik.values.password,
          })
             .unwrap()
-            .then(() => {
+            .then(token => {
+               localStorage.setItem(TOKEN_KEY, token);
                toast.success('Você agora está logado!');
                navigate('/quiz');
             });

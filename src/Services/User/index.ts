@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { api } from '../Api';
 
 type RegisterParams = {
@@ -26,6 +27,9 @@ export const userApi = api.injectEndpoints({
             method: 'POST',
             data,
          }),
+         transformResponse(apiResponse: AxiosResponse) {
+            return apiResponse.data.token as string;
+         },
       }),
    }),
 });
