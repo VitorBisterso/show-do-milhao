@@ -1,6 +1,6 @@
 import { TOKEN_KEY } from 'Const';
 
-function decodeJwt(token: string) {
+export function decodeJwt(token: string) {
    const base64Url = token.split('.')[1];
 
    if (!base64Url) return null;
@@ -32,6 +32,13 @@ export function isUserLoggedIn() {
       return false;
 
    return true;
+}
+
+export function getCurrentUserEmail() {
+   const token = localStorage.getItem(TOKEN_KEY);
+   const decodedToken = decodeJwt(token as string);
+
+   return decodedToken.user.email;
 }
 
 export function logout() {

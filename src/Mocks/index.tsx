@@ -31,8 +31,14 @@ export function mockQuestion(): StepType {
    const answers = mockAnswers(5);
    return {
       title: faker.random.words(3),
-      // eslint-disable-next-line react/react-in-jsx-scope
-      element: <Question answers={answers} currentAnswer={answers[0]} />,
+      element: (
+         // eslint-disable-next-line react/react-in-jsx-scope
+         <Question
+            answers={answers}
+            currentAnswer={answers[0]}
+            onChange={() => undefined}
+         />
+      ),
    };
 }
 

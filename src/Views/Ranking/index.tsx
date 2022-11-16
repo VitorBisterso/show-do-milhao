@@ -2,8 +2,8 @@ import React from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-import { mockRanking } from 'Mocks';
-import { Box } from '@mui/material';
+import { Box, CircularProgress, Typography } from '@mui/material';
+import { useGetScoresQuery } from 'Services';
 
 const columns: GridColDef[] = [
    {
@@ -27,13 +27,41 @@ const columns: GridColDef[] = [
 ];
 
 export default function Ranking() {
-   const mockedData = mockRanking(25);
+   const { data: scores, isLoading } = useGetScoresQuery(null);
+
+   if (isLoading)
+      return (
+         <div style={{ display: 'grid', placeItems: 'center' }}>
+            <CircularProgress size={64} />
+         </div>
+      );
+
+   if (scores && scores.length <= 0)
+      return (
+         <div style={{ display: 'grid', placeItems: 'center' }}>
+            <Typography variant="h6">Nenhuma pontuação encontrada</Typography>
+         </div>
+      );
+
+   const formatData = () => {
+      if (!scores) return [] as GridColDef[];
+
+      return scores.map(score => {
+         const { id, score: scoreValue, user, category } = score;
+         return {
+            id,
+            score: scoreValue,
+            user: `${user.name} - ${user.email}`,
+            category: category.name,
+         };
+      });
+   };
 
    return (
       <Box sx={{ height: 711, width: '100%' }}>
          <DataGrid
             columns={columns}
-            rows={mockedData}
+            rows={formatData()}
             rowHeight={60}
             pageSize={10}
             rowsPerPageOptions={[10]}

@@ -9,9 +9,14 @@ import {
 type QuestionProps = {
    answers: Array<string>;
    currentAnswer: string;
+   onChange: (value: string) => void;
 };
 
-export default function Question({ answers, currentAnswer }: QuestionProps) {
+export default function Question({
+   answers,
+   currentAnswer,
+   onChange,
+}: QuestionProps) {
    return (
       <FormControl>
          <RadioGroup
@@ -26,6 +31,8 @@ export default function Question({ answers, currentAnswer }: QuestionProps) {
                   label={answer}
                   value={answer}
                   control={<Radio />}
+                  // @ts-expect-error é o tipo correto
+                  onChange={e => onChange(e.target.value)}
                />
             ))}
          </RadioGroup>

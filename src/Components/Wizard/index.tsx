@@ -66,7 +66,7 @@ export default function Wizard({ steps, onFinish }: WizardProps) {
             <Paper square elevation={0} sx={{ p: 3 }}>
                <Typography variant="body1">Concluído!</Typography>
                <Button onClick={onFinish} sx={{ mt: 1, mr: 1 }}>
-                  Resetar
+                  Enviar minha pontuação
                </Button>
             </Paper>
          )}
