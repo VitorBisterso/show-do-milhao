@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-import { mockRanking } from 'mocks';
+import { mockRanking } from 'Mocks';
 import { Box } from '@mui/material';
 
 const columns: GridColDef[] = [

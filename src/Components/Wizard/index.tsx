@@ -12,7 +12,6 @@ import { Paper, StepContent } from '@mui/material';
 export type StepType = {
    title: string;
    element: ReactNode;
-   onClickNext: () => void;
 };
 
 type WizardProps = {
@@ -31,10 +30,6 @@ export default function Wizard({ steps, onFinish }: WizardProps) {
       setActiveStep(prevActiveStep => prevActiveStep - 1);
    };
 
-   const handleReset = () => {
-      setActiveStep(0);
-   };
-
    return (
       <Box sx={{ maxWidth: 400 }}>
          <Stepper activeStep={activeStep} orientation="vertical">
@@ -47,10 +42,7 @@ export default function Wizard({ steps, onFinish }: WizardProps) {
                         <div>
                            <Button
                               variant="contained"
-                              onClick={() => {
-                                 handleNext();
-                                 step.onClickNext();
-                              }}
+                              onClick={handleNext}
                               sx={{ mt: 1, mr: 1 }}
                            >
                               {index === steps.length - 1
@@ -73,13 +65,7 @@ export default function Wizard({ steps, onFinish }: WizardProps) {
          {activeStep === steps.length && (
             <Paper square elevation={0} sx={{ p: 3 }}>
                <Typography variant="body1">Concluído!</Typography>
-               <Button
-                  onClick={() => {
-                     handleReset();
-                     onFinish();
-                  }}
-                  sx={{ mt: 1, mr: 1 }}
-               >
+               <Button onClick={onFinish} sx={{ mt: 1, mr: 1 }}>
                   Resetar
                </Button>
             </Paper>

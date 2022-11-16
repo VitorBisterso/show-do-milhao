@@ -28,12 +28,11 @@ function mockAnswers(amount: number) {
 }
 
 export function mockQuestion(): StepType {
+   const answers = mockAnswers(5);
    return {
       title: faker.random.words(3),
       // eslint-disable-next-line react/react-in-jsx-scope
-      element: <Question answers={mockAnswers(5)} />,
-      // eslint-disable-next-line no-console
-      onClickNext: () => console.log('respondeu'),
+      element: <Question answers={answers} currentAnswer={answers[0]} />,
    };
 }
 

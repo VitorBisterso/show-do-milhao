@@ -8,15 +8,17 @@ import {
 
 type QuestionProps = {
    answers: Array<string>;
+   currentAnswer: string;
 };
 
-export default function Question({ answers }: QuestionProps) {
+export default function Question({ answers, currentAnswer }: QuestionProps) {
    return (
       <FormControl>
          <RadioGroup
             aria-labelledby="radio-buttons-group-label"
             name="radio-buttons-group"
             defaultValue={answers[0]}
+            value={currentAnswer}
          >
             {answers.map(answer => (
                <FormControlLabel
